@@ -1,0 +1,53 @@
+body {
+    background-image: url("../img/weather.png");
+}
+
+.label-text {
+    color:  #c7c7c7;
+    font-size: 20px;
+}
+
+/*(TODO) Make map size to be automatic*/
+#poi-map {
+  width: 750px;
+  height: 500px;
+  display: none;
+}
+
+#search-map {
+  margin: 50px;
+  width: 900px;
+  height: 500px;
+  display: none;
+}
+
+#poi-table {
+  display: none;
+}
+
+#act-table {
+  display: none;
+}
+
+#poi-panel, #add-panel, #search-panel {
+  display: none;
+}
+
+#hotel-section {
+  display:block;
+}
+
+/* Hotel Section */
+#hotel-tnail {
+  display: block;
+}
+
+/*(TODO) Doesn't work*/
+#hotel-btn {
+  margin: auto;
+}
+
+/*.hotel-img {
+  width: 150px;
+  height: 50px;
+}*/

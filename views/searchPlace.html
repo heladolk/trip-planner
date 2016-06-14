@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Search Places</title>
+
+    <link rel="stylesheet" href="/stylesheets/index.css">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <!-- Google Map API -->
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBCt5usaXtxhpHdPo4Z9P962aq6ACw5JsQ&libraries=places">
+    </script>
+
+    <!-- JS files for the project -->
+    <script type="text/javascript" src="/javascripts/globalVar.js"></script>
+    <script type="text/javascript" src="/javascripts/main.js"></script>
+
+    <script type="text/javascript" src="/javascripts/class/poiClass.js"></script>
+    <script type="text/javascript" src="/javascripts/class/hotelClass.js"></script>
+    <script type="text/javascript" src="/javascripts/class/placeClass.js"></script>
+    <!-- <script type="text/javascript" src="/javascripts/class/activityClass.js"></script> -->
+
+    <script type="text/javascript" src="/javascripts/api/poiApiCall.js"></script>
+    <!-- <script type="text/javascript" src="/javascripts/api/actApiCall.js"></script> -->
+
+    <script type="text/javascript" src="/javascripts/poi.js"></script>
+    <script type="text/javascript" src="/javascripts/addPlace.js"></script>
+    <script type="text/javascript" src="/javascripts/searchPlace.js"></script>
+    <script type="text/javascript" src="/javascripts/itinerary.js"></script>
+    <script type="text/javascript" src="/javascripts/hotel.js"></script>
+
+  </head>
+  <body>
+    <div class="container">
+      <nav class="navbar navbar-default">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">TripPlan</a>
+          </div>
+
+          <div class="collapse navbar-collapse">
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="/">Home</a></li>
+                <li><a href="searchPlace">Nearby Search</a></li>
+                <li><a href="hotel">Hotel Search</a></li>
+                <li><a href="itinerary">Itinerary</a></li>
+              </ul>
+          </div>
+      </nav>
+
+      <div class="row" id="feature-input">
+        <div class="col-md-4">
+          <h4>Search Nearby Places</h4>
+          <form>
+            <div class="form-group">
+              <label for="search-place">Address</label>
+              <input type="text" class="form-control" id="search-place" placeholder="Enter City or Address">
+              <label for="search-type">Category</label>
+              <input type="text" class="form-control" id="search-cat" placeholder="Category ex)restaurant, hotel, parking">
+            </div>
+            <button type="button" class="btn btn-success feature-btn" id="search-btn">Search Nearby Places</button>
+          </form>
+        </div>
+
+      <div class="row" id="search-section">
+        <div class="row">
+          <div class="col-md-12 col-md-offset-3" id="search-map"></div>
+        </div>
+      </div>
+
+    </div>
+
+  </body>
+</html>

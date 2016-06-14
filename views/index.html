@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Trip Planner</title>
+
+    <link rel="stylesheet" href="/stylesheets/index.css">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <!-- Google Map API -->
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBCt5usaXtxhpHdPo4Z9P962aq6ACw5JsQ&libraries=places">
+    </script>
+
+    <!-- JS files for the project -->
+    <script type="text/javascript" src="/javascripts/globalVar.js"></script>
+    <script type="text/javascript" src="/javascripts/main.js"></script>
+
+    <script type="text/javascript" src="/javascripts/class/poiClass.js"></script>
+    <script type="text/javascript" src="/javascripts/class/hotelClass.js"></script>
+    <script type="text/javascript" src="/javascripts/class/placeClass.js"></script>
+    <!-- <script type="text/javascript" src="/javascripts/class/activityClass.js"></script> -->
+
+    <script type="text/javascript" src="/javascripts/api/poiApiCall.js"></script>
+    <!-- <script type="text/javascript" src="/javascripts/api/actApiCall.js"></script> -->
+
+    <script type="text/javascript" src="/javascripts/poi.js"></script>
+    <script type="text/javascript" src="/javascripts/addPlace.js"></script>
+    <script type="text/javascript" src="/javascripts/searchPlace.js"></script>
+    <script type="text/javascript" src="/javascripts/itinerary.js"></script>
+    <script type="text/javascript" src="/javascripts/hotel.js"></script>
+
+  </head>
+  <body>
+    <div class="container">
+      <nav class="navbar navbar-default">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">TripPlan</a>
+          </div>
+
+          <div class="collapse navbar-collapse">
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="/">Home</a></li>
+                <li><a href="searchPlace">Nearby Search</a></li>
+                <li><a href="hotel">Hotel Search</a></li>
+                <li><a href="itinerary">Itinerary</a></li>
+              </ul>
+          </div>
+      </nav>
+      <!-- Destination Section -->
+      <div class="row">
+        <div class="col-md-6">
+          <h3>Where are you going?</h3>
+          <form class="form-horizontal">
+            <!-- Destination -->
+            <div class="form-group">
+              <label for="dest" class="col-sm-2 control-label">Destination</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="ref-place" placeholder="City">
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <div class="col-md-6">
+        </div>
+      </div>
+
+      <!-- Feature Section -->
+      <div class="row" id="feature-input">
+        <!-- <h4>Points of Interest</h4> -->
+        <div class="row" id="poi-user-input">
+          <form>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="poi-distance">Within</label>
+                <input type="number" id="poi-distance" min="5" max="100" step="5" value="30">
+                <span>Miles</span>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <div class="dropdown">
+                  <label for="poi-tmode">Mode of Travel</label>
+                  <button class="btn btn-default dropdown-toggle" type="button" id="poi-tmode" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    Dropdown
+                    <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu poi-tmode-list" aria-labelledby="poi-tmode">
+                    <li><a href="#">DRIVING</a></li>
+                    <li><a href="#">WALKING</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <button type="button" class="btn btn-primary feature-btn" id="point-btn">Show Points of Interest</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+        <!-- <div class="col-md-4">
+          <h4>Itinerary</h4>
+          <div class="form-group">
+            <button type="button" class="btn btn-danger feature-btn" id="iti-btn">Build Itinerary</button>
+            <br>
+            <div class="iti-section">
+              <div class="panel panel-info" id="poi-panel">
+                <div class="panel-heading">Points of Interest</div>
+                <ul class="list-group" id="poiP-list">
+                </ul>
+              </div>
+              <div class="panel panel-warning" id="add-panel">
+                <div class="panel-heading">Places Added</div>
+                <ul class="list-group" id="addP-list">
+                </ul>
+              </div>
+              <div class="panel panel-success" id="search-panel">
+                <div class="panel-heading">Places Searched</div>
+                <ul class="list-group" id="searchP-list">
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> -->
+
+      <!-- Points of Interest Section -->
+      <div class="row" id="poi-section">
+        <!-- For Table -->
+        <div class="row">
+          <div class="col-md-12 poi-div">
+            <table class="table table-bordered table-striped" id="poi-table">
+              <thead>
+                <tr>
+                  <th>Point of Interest</th>
+                  <th>Category</th>
+                  <th>Score</th>
+                  <th>Distance</th>
+                  <th>Build Map</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+        <!-- For Map -->
+        <div class="row">
+          <div class="col-md-7" id="poi-map"></div>
+          <div class="col-md-3 col-md-offset-1" id="poi-output">
+            <div class="row" id="poi-text"></div>
+            <div class="row" id="place-add"></div>
+          </div>
+        </div>
+
+    </div>
+
+    <div class="row">
+      <div class="col-md-4">
+        <h4>Itinerary</h4>
+        <div class="form-group">
+          <button type="button" class="btn btn-danger feature-btn" id="iti-btn">Build Itinerary</button>
+          <br>
+          <div class="iti-section">
+            <div class="panel panel-info" id="poi-panel">
+              <div class="panel-heading">Points of Interest</div>
+              <ul class="list-group" id="poiP-list">
+              </ul>
+            </div>
+            <div class="panel panel-warning" id="add-panel">
+              <div class="panel-heading">Places Added</div>
+              <ul class="list-group" id="addP-list">
+              </ul>
+            </div>
+            <div class="panel panel-success" id="search-panel">
+              <div class="panel-heading">Places Searched</div>
+              <ul class="list-group" id="searchP-list">
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  </body>
+</html>
