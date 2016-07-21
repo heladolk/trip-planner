@@ -2,6 +2,7 @@
 node_modules/
 test/
 public/javascripts/unused
+npm-debug.log
 
 # Environment file
 .env
