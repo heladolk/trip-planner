@@ -4,7 +4,8 @@
 
 // API Keys
 var expediaApiKey = "FgH7zj5FQzFAN1mYvPoFC9pGnQzTCxEe";
-var googleApiKey = "AIzaSyBCt5usaXtxhpHdPo4Z9P962aq6ACw5JsQ";
+// var googleApiKey = "AIzaSyBCt5usaXtxhpHdPo4Z9P962aq6ACw5JsQ";
+var googleApiKey = "AIzaSyAXPB92qlH58ItNsyJkV0JX6VKIAmt47Vg";
 
 // Global variables
 var refPlace;
@@ -35,7 +36,7 @@ var selectedPOIs = [];
 var searchMap;
 var geocodeToSearch;
 var searchString;
-var searchInfoWindow; 
+var searchInfoWindow;
 
 /*
   Used in itinerary.js
