@@ -3,6 +3,5 @@ node_modules/
 test/
 public/javascripts/unused
 
-# Heroku setup files
-Procfile
+# Environment file
 .env
