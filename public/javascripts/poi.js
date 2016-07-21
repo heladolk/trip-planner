@@ -24,7 +24,7 @@ function initPOICall(){
 function poiApiCall(latitude, longitude) {
   $.ajax({
     // url:`http://localhost:3000/poi`,
-    url: `https://salty-lake-14644.herokuapp.com/`,
+    url: `https://salty-lake-14644.herokuapp.com/poi`,
     method: "POST",
     data: {latitude: latitude, longitude: longitude},
   })
