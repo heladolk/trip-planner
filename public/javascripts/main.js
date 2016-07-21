@@ -8,7 +8,7 @@ $(document).ready(function() {
   });
 
   // Show Points of Interest
-  $('#point-btn').click(function() {
+  $('#poi-btn').click(function() {
     poiDistance = $('#poi-distance').val();
     poiTravelMode = $("#poi-tmode").val() || "DRIVING";
 

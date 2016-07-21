@@ -8,8 +8,11 @@ let logger = require('morgan');
 let cookieParser = require('cookie-parser');
 let bodyParser = require('body-parser');
 
-app.use(logger('dev'));
+let poi = require('./routes/poi');
 
+app.use(logger('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(__dirname + '/public'));
 
 app.get('/', function(req, res, next) {
@@ -27,6 +30,8 @@ app.get('/itinerary', function(req, res, next) {
 app.get('/searchPlace', function(req, res, next) {
   res.sendFile(__dirname + '/views/searchPlace.html');
 });
+
+app.use('/poi', poi);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
