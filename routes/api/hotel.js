@@ -2,7 +2,7 @@
 
 let express = require("express");
 let router = express.Router();
-let requestPOIdata = require("../helpers/requestPOIdata");
+let requestPOIdata = require("../../helpers/requestPOIdata");
 
 router.post('/', function(req, res, next) {
   let latitude = req.body.latitude;

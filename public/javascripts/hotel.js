@@ -12,7 +12,6 @@ $(document).ready(function() {
     endDate = $('#end-date').val();
     numHotels = $("#hotel-num").val() || "25";
     sortBy = $("#hotel-sort").val() || "starrating";
-    console.log(numHotels, sortBy);
     searchHotels(refPlace);
   });
 

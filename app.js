@@ -8,7 +8,8 @@ let logger = require('morgan');
 let cookieParser = require('cookie-parser');
 let bodyParser = require('body-parser');
 
-let poi = require('./routes/poi');
+let poi = require('./routes/api/poi');
+let hotel = require('./routes/api/hotel');
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -31,7 +32,8 @@ app.get('/searchPlace', function(req, res, next) {
   res.sendFile(__dirname + '/views/searchPlace.html');
 });
 
-app.use('/poi', poi);
+app.use('/api/poi', poi);
+app.use('/api/hotel', hotel);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
