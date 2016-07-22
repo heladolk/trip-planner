@@ -28,8 +28,8 @@ $(document).ready(function() {
 
 function searchHotels(refPlace, startDate, endDate) {
   $.ajax({
-    url:`http://localhost:3000/api/hotel`,
-    // url: `https://salty-lake-14644.herokuapp.com/api/hotel`,
+    // url:`http://localhost:3000/api/hotel`,
+    url: `https://salty-lake-14644.herokuapp.com/api/hotel`,
     method: "POST",
     data: {refPlace: refPlace, startDate: startDate, endDate: endDate},
   })
@@ -51,8 +51,8 @@ Hotel.prototype.getHotelInfo = function() {
   var hotel = this;
   var hotelId = hotel.id;
   $.ajax({
-    url:`http://localhost:3000/api/hotel/${hotelId}`,
-    // url: `https://salty-lake-14644.herokuapp.com/api/hotel`,
+    // url:`http://localhost:3000/api/hotel/${hotelId}`,
+    url: `https://salty-lake-14644.herokuapp.com/api/hotel`,
     method: "GET",
   })
   .done(function(data) {
