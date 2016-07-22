@@ -52,7 +52,7 @@ Hotel.prototype.getHotelInfo = function() {
   var hotelId = hotel.id;
   $.ajax({
     // url:`http://localhost:3000/api/hotel/${hotelId}`,
-    url: `https://salty-lake-14644.herokuapp.com/api/hotel`,
+    url: `https://salty-lake-14644.herokuapp.com/api/hotel/${hotelId}`,
     method: "GET",
   })
   .done(function(data) {
