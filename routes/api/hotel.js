@@ -2,18 +2,32 @@
 
 let express = require("express");
 let router = express.Router();
-let requestPOIdata = require("../../helpers/requestPOIdata");
+let requestHotels = require("../../helpers/requestHoteldata").requestHotels;
+let getHotelInfo = require("../../helpers/requestHoteldata").getHotelInfo;
 
 router.post('/', function(req, res, next) {
-  let latitude = req.body.latitude;
-  let longitude = req.body.longitude;
+  let refPlace = req.body.refPlace;
+  let startDate = req.body.startDate;
+  let endDate = req.body.endDate;
 
-  let poiCall = requestPOIdata(latitude, longitude);
+  let hotelCall = requestHotels(refPlace, startDate, endDate)
 
-  poiCall
+  hotelCall
   .then(function(data) {
-    let poiData = JSON.parse(data.body);
-    res.json(poiData);
+    let hotels = JSON.parse(data.body);
+    res.json(hotels);
+  });
+});
+
+router.get('/:id', function(req, res, next) {
+  let hotelId = req.params.id;
+
+  let hotelData = getHotelInfo(hotelId);
+  
+  hotelData
+  .then(function(data) {
+    let hotel = JSON.parse(data.body);
+    res.json(hotel);
   });
 });
 

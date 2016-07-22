@@ -12,7 +12,7 @@ $(document).ready(function() {
     endDate = $('#end-date').val();
     numHotels = $("#hotel-num").val() || "25";
     sortBy = $("#hotel-sort").val() || "starrating";
-    searchHotels(refPlace);
+    searchHotels(refPlace, startDate, endDate);
   });
 
   $(".hotel-num-list li").click(function() {
@@ -26,14 +26,14 @@ $(document).ready(function() {
   });
 });
 
-function searchHotels(refPlace) {
+function searchHotels(refPlace, startDate, endDate) {
   $.ajax({
-    url:
-    `http://terminal2.expedia.com/x/mhotels/search?city=${refPlace}&checkInDate=${startDate}&checkOutDate=${endDate}&room1=2&apikey=${expediaApiKey}`,
-    method: "GET"
+    url:`http://localhost:3000/api/hotel`,
+    // url: `https://salty-lake-14644.herokuapp.com/api/hotel`,
+    method: "POST",
+    data: {refPlace: refPlace, startDate: startDate, endDate: endDate},
   })
   .done(function(data) {
-    // console.log(data);
     var hotelsArr = data.hotelList.map(function(hotel) {
       return new Hotel(hotel);
     })
@@ -49,15 +49,15 @@ function searchHotels(refPlace) {
 
 Hotel.prototype.getHotelInfo = function() {
   var hotel = this;
+  var hotelId = hotel.id;
   $.ajax({
-    url: `http://terminal2.expedia.com/x/mhotels/info?hotelId=${this.id}&apikey=${expediaApiKey}`,
-    method: "GET"
+    url:`http://localhost:3000/api/hotel/${hotelId}`,
+    // url: `https://salty-lake-14644.herokuapp.com/api/hotel`,
+    method: "GET",
   })
   .done(function(data) {
-    console.log(data);
     hotel.detailsUrl = data.deepLinkUrl;
     hotel.amenities = data.hotelAmenities;
-    console.log(hotel);
     hotel.render();
   })
   .fail(function(error) {
