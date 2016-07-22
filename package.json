@@ -2,7 +2,7 @@
   "name": "trip-planner",
   "version": "1.0.0",
   "description": "Travel Planner. This app will be used by people planning a trip, looking for places to visit.",
-  "main": "server.js",
+  "main": "app.js",
   "directories": {
     "test": "test"
   },
@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/heladolk/TripPlanner.git"
+    "url": "git+https://github.com/heladolk/trip-planner.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/heladolk/TripPlanner/issues"
+    "url": "https://github.com/heladolk/trip-planner/issues"
   },
-  "homepage": "https://github.com/heladolk/TripPlanner#readme",
+  "homepage": "https://github.com/heladolk/trip-planner#readme",
   "dependencies": {
     "body-parser": "^1.15.2",
     "cookie-parser": "^1.4.3",
