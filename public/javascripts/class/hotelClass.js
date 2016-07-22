@@ -14,7 +14,7 @@ function Hotel(config) {
   this.starRating = config.hotelStarRating || null;
   this.guestRating = config.hotelGuestRating || null;
   this.numReviews= config.totalReviews || null;
-  this.img = "http://images.trvl-media.com/" + config.largeThumbnailUrl || null;
+  this.img = "https://images.trvl-media.com/" + config.largeThumbnailUrl || null;
   this.detailsUrl = null;
 }
 
